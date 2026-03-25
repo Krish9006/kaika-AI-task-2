@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaika AI – LinkedIn About</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d1117;
+    --ink-soft: #3a3f4b;
+    --ink-muted: #6b7280;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --rule: #e4ddd0;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  body {
+    background: var(--cream);
+    font-family: var(--sans);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 24px;
+  }
+
+  .card {
+    background: var(--white);
+    max-width: 760px;
+    width: 100%;
+    border: 1px solid var(--rule);
+    box-shadow: 0 2px 32px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+    overflow: hidden;
+    animation: rise 0.7s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── MASTHEAD ─────────────────────────────── */
+  .masthead {
+    background: var(--ink);
+    padding: 48px 52px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.18);
+  }
+  .masthead::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.10);
+  }
+
+  .brand-tag {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fade 0.5s 0.3s ease both;
+  }
+
+  .masthead-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 5vw, 40px);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fade 0.5s 0.45s ease both;
+  }
+
+  .masthead-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .masthead-sub {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.04em;
+    opacity: 0;
+    animation: fade 0.5s 0.6s ease both;
+  }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── BODY ─────────────────────────────────── */
+  .body {
+    padding: 0 52px 52px;
+  }
+
+  /* ── BLOCK ────────────────────────────────── */
+  .block {
+    padding: 36px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 0 20px;
+    opacity: 0;
+    animation: fade 0.5s ease both;
+  }
+
+  .block:nth-child(1) { animation-delay: 0.55s; }
+  .block:nth-child(2) { animation-delay: 0.65s; }
+  .block:nth-child(3) { animation-delay: 0.75s; }
+  .block:nth-child(4) { animation-delay: 0.85s; }
+  .block:nth-child(5) { animation-delay: 0.95s; border-bottom: none; }
+
+  .block-num {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--gold);
+    padding-top: 3px;
+    font-style: italic;
+  }
+
+  .block-content {}
+
+  .block-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 10px;
+  }
+
+  .block-en {
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .block-ja {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    border-left: 2px solid var(--gold-light);
+    padding-left: 12px;
+  }
+
+  /* ── OUTCOMES BLOCK ───────────────────────── */
+  .outcomes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .outcome-arrow {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+
+  .outcome-text {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .outcome-ja {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--ink-muted);
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* ── PILOT CALLOUT ────────────────────────── */
+  .pilot-box {
+    margin-top: 12px;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    padding: 18px 20px;
+  }
+
+  .pilot-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+  }
+
+  .pilot-en {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .pilot-ja {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── COPY BUTTON ──────────────────────────── */
+  .copy-wrap {
+    padding: 0 52px 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    opacity: 0;
+    animation: fade 0.5s 1.1s ease both;
+  }
+
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    padding: 11px 24px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: #1f2937; }
+  .copy-btn.copied { background: #166534; }
+
+  .copy-note {
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  /* ── HIDDEN COPY TEXT ─────────────────────── */
+  #copyTarget { display: none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="masthead">
+    <div class="brand-tag">Kaika AI — LinkedIn About</div>
+    <div class="masthead-title">Transforming the way<br>Japan understands its <em>people.</em></div>
+    <div class="masthead-sub">Employee Experience Intelligence · AI-Driven Insights · Japan-First</div>
+  </div>
+
+  <div class="body">
+
+    <div class="block">
+      <div class="block-num">01</div>
+      <div class="block-content">
+        <div class="block-label">The Problem · 課題</div>
+        <div class="block-en">Many organizations in Japan struggle with employee disengagement, hidden dissatisfaction, and increasing turnover.</div>
+        <div class="block-ja">日本企業の多くは、従業員のエンゲージメント低下、見えにくい不満、そして離職率の増加という課題に直面しています。</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-num">02</div>
+      <div class="block-content">
+        <div class="block-label">The Cost · 課題の影響</div>
+        <div class="block-en">This leads to reduced productivity, higher hiring costs, and organizational instability.</div>
+        <div class="block-ja">これにより、生産性の低下、採用コストの増加、そして組織の不安定化が引き起こされます。</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-num">03</div>
+      <div class="block-content">
+        <div class="block-label">Our Solution · ソリューション</div>
+        <div class="block-en">Kaika AI provides structured insights into employee experience using AI-driven analysis.</div>
+        <div class="block-ja">Kaika AIは、AIによる分析を通じて、従業員体験に関する構造化されたインサイトを提供します。</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-num">04</div>
+      <div class="block-content">
+        <div class="block-label">Business Outcomes · ビジネス成果</div>
+        <div class="outcomes">
+          <div class="outcome-item">
+            <span class="outcome-arrow">→</span>
+            <div>
+              <div class="outcome-text">Improve retention</div>
+              <span class="outcome-ja">離職率の改善</span>
+            </div>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-arrow">→</span>
+            <div>
+              <div class="outcome-text">Increase engagement</div>
+              <span class="outcome-ja">エンゲージメント向上</span>
+            </div>
+          </div>
+          <div class="outcome-item">
+            <span class="outcome-arrow">→</span>
+            <div>
+              <div class="outcome-text">Support better management decisions</div>
+              <span class="outcome-ja">より良いマネジメント意思決定を支援</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-num">05</div>
+      <div class="block-content">
+        <div class="block-label">How We Start · 導入ステップ</div>
+        <div class="pilot-box">
+          <div class="pilot-badge">Pilot Program</div>
+          <div class="pilot-en">We start with small pilot programs (2–4 weeks) to validate impact before any full commitment.</div>
+          <div class="pilot-ja">まずは2〜4週間の小規模なパイロットプログラムから開始し、効果を検証します。</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="copy-wrap">
+    <button class="copy-btn" onclick="copyText(this)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      Copy for LinkedIn
+    </button>
+    <span class="copy-note">Paste directly into your LinkedIn About section</span>
+  </div>
+
+</div>
+
+<textarea id="copyTarget">
+🔵 The Problem | 課題
+
+Many organizations in Japan struggle with employee disengagement, hidden dissatisfaction, and increasing turnover.
+
+日本企業の多くは、従業員のエンゲージメント低下、見えにくい不満、そして離職率の増加という課題に直面しています。
+
+━━━━━━━━━━━━━━━━━
+
+💡 The Cost | 課題の影響
+
+This leads to reduced productivity, higher hiring costs, and organizational instability.
+
+これにより、生産性の低下、採用コストの増加、そして組織の不安定化が引き起こされます。
+
+━━━━━━━━━━━━━━━━━
+
+🚀 Our Solution | ソリューション — Kaika AI
+
+Kaika AI provides structured insights into employee experience using AI-driven analysis.
+
+Kaika AIは、AIによる分析を通じて、従業員体験に関する構造化されたインサイトを提供します。
+
+━━━━━━━━━━━━━━━━━
+
+📈 Business Outcomes | ビジネス成果
+
+→ Improve retention（離職率の改善）
+→ Increase engagement（エンゲージメント向上）
+→ Support better management decisions（より良いマネジメント意思決定を支援）
+
+━━━━━━━━━━━━━━━━━
+
+🧪 How We Start | 導入ステップ
+
+We start with small pilot programs (2–4 weeks) to validate impact.
+
+まずは2〜4週間の小規模なパイロットプログラムから開始し、効果を検証します。
+</textarea>
+
+<script>
+function copyText(btn) {
+  const text = document.getElementById('copyTarget').value.trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy for LinkedIn`;
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+</script>
+</body>
+</html>
